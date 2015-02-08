@@ -1,0 +1,30 @@
+{
+  "name": "njx",
+  "version": "0.1.0",
+  "description": "Nunjucks Utility",
+  "main": "njx.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "bin": "./bin/njx",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tonypujals/njx.git"
+  },
+  "keywords": [
+    "nunjucks",
+    "template"
+  ],
+  "author": "Tony Pujals (http://twitter.com/subfuzion)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tonypujals/njx/issues"
+  },
+  "homepage": "https://github.com/tonypujals/njx",
+  "devDependencies": {
+    "mocha": "^2.1.0"
+  },
+  "dependencies": {
+    "nunjucks": "^1.2.0"
+  }
+}
