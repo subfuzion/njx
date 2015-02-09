@@ -2,7 +2,9 @@ var _ = require('lodash'),
     async = require('async'),
     debug = require('debug')('njx'),
     fs = require('fs'),
+    fsx = require('fs-extra'),
     nunjucks = require('nunjucks'),
+    path = require('path'),
     request = require('request');
 
 exports.render = function(config, callback) {
@@ -34,7 +36,7 @@ exports.render = function(config, callback) {
     nunjucks.renderString(spec.template, spec.data, function(err, result) {
       if (err) return callback(err);
       debug(result);
-      return callback(null, result);
+      return spec.outfile ? writeFile(spec.outfile, result, callback) : callback(null, result);
     });
   });
 };
@@ -118,3 +120,13 @@ function readCache(name, callback) {
   // stub for now
   callback();
 }
+
+function writeFile(file, data, callback) {
+  debug('writing to: ' + file);
+  var dir = path.dirname(file);
+  fsx.mkdirs(dir, function(err) {
+    if (err) return callback(err);
+    fs.writeFile(file, data, callback);
+  });
+}
+
