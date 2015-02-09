@@ -98,7 +98,7 @@ function readFile(pathname, options, callback) {
 
   fs.readFile(pathname, { encoding: 'utf8'}, function(err, data) {
     if (err) return callback(err);
-    return options.parse ? parseString(body, options, callback) : callback(null, options.trim ? body.trim() : body);
+    return options.parse ? parseString(data, options, callback) : callback(null, options.trim ? data.trim() : data);
   });
 }
 
