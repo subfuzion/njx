@@ -2,14 +2,17 @@ var pkg = require('./package.json'),
     commander = require('commander'),
     njx = require('./index');
 
+var template;
+
 commander
     .version(pkg.version)
-    .usage('[options] template')
+    .usage('[options] <template>')
     .option('-d, --data <source>', 'json string, or else path/url to json')
     .option('-t, --template <template>', 'template string, or else path/url to template')
     .option('-o, --out <pathname>', 'write output to file')
-    .option('-p, --paths', 'create intermediate directories when writing file');
+    .option('-p, --paths', 'create intermediate directories when writing file')
   //.option('-n, --nocache', 'do not use template cache')
+;
 
 
 commander.on('error', function () {
@@ -19,13 +22,19 @@ commander.on('error', function () {
 
 commander.parse(process.argv);
 
-render(commander);
+template = commander.args && commander.args[0] || commander.template;
+if (!template) {
+  console.log('  error: missing template');
+  commander.help();
+}
 
-function render(options) {
+render(template, commander);
+
+function render(template, options) {
   function render(data) {
     njx.render({
       data: data,
-      template: options.template,
+      template: template || options.template,
       outfile: options.out,
       paths: options.paths,
       cache: !options.nocache
