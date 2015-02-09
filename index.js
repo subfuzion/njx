@@ -5,15 +5,32 @@ var _ = require('lodash'),
     fsx = require('fs-extra'),
     nunjucks = require('nunjucks'),
     path = require('path'),
-    request = require('request');
+    request = require('request'),
+    yaml = require('js-yaml');
 
 exports.render = function(config, callback) {
   debug('render config: %j', config);
 
   async.waterfall([
       function(cb) {
-        // don't modify caller config
-        var spec = _.clone(config);
+        if (config.config) {
+          getResource(config.config, function(err, doc) {
+            if (err) return cb(err);
+            try {
+              var spec = yaml.safeLoad(doc);
+              // config options override options loaded from config.config source
+              spec = _.defaults(config, spec);
+              return cb(null, spec);
+            } catch (err) {
+              return cb(err);
+            }
+          })
+        } else {
+          cb(null, _.clone(config));
+        }
+      },
+
+      function(spec, cb) {
         getResource(spec.data, { parse: true }, function(err, data) {
           if (err) return cb(err);
           spec.data = data;

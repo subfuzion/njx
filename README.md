@@ -90,13 +90,29 @@ Usage examples
 
 ## njx cli
 
-    Usage: njx [options] template
+    usage: njx [options] template
+    
+Examples:
 
+    $ '{ "name": "World" }' | njx "Hello {{ name }}" >> hello.txt
+    
+or
+
+    njx -t "Hello {{ name }}" -d '{ "name': "World" }' -o hello.txt
+
+or
+
+    njx -c https://gist.githubusercontent.com/tonypujals/d0fa251f8b4ab71928e2/raw/4a5cd80b1aa8ab9ddcfd8971f7755ba573ab3174/sample-config.yaml >> hello.txt
+    
 
 #### template
 The value for template can be a nunjucks template string, a file path, or url. To specify a file path in the current directory, use the form `./template`.
 
 #### options
+
+##### -c --config
+
+A file or url to a `yaml` or `json` file with supported options, such as `data` and `template`. See this [yaml gist](https://gist.githubusercontent.com/tonypujals/d0fa251f8b4ab71928e2/raw/4a5cd80b1aa8ab9ddcfd8971f7755ba573ab3174/sample-config.yaml) or this [json gist](https://gist.githubusercontent.com/tonypujals/995b24788aa742a11a41/raw/d4a55f316dddc118bebd6316fc069378b20768e4/sample-config.json) for examples.
 
 ##### -d --data
 

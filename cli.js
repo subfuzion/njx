@@ -6,8 +6,10 @@ var template;
 
 commander
     .version(pkg.version)
-    .usage('[options] <template>')
+    .usage('[options] [template]')
+    .option('-c, --config <source>', 'file/url for options in yaml/json format (command line options take precedence)')
     .option('-d, --data <source>', 'json string, or else path/url to json')
+    .option('-t, --template <source>', 'template string, or else path/url to template')
     .option('-o, --out <pathname>', 'write output to file')
     .option('-p, --paths', 'create intermediate directories when writing file')
   //.option('-n, --nocache', 'do not use template cache')
@@ -21,22 +23,20 @@ commander.on('error', function () {
 
 commander.parse(process.argv);
 
-template = commander.args && commander.args[0];
-
-if (!template) {
-  console.log('  error: missing template');
-  commander.help();
+if (commander.args && commander.args[0]) {
+  commander.template = commander.args[0];
 }
 
-render(template, commander);
+render(commander);
 
 // ==========================
 
-function render(template, options) {
+function render(options) {
   function render(data) {
     njx.render({
       data: data,
-      template: template,
+      config: options.config,
+      template: options.template,
       outfile: options.out,
       paths: options.paths,
       cache: !options.nocache
@@ -54,7 +54,7 @@ function render(template, options) {
     });
   }
 
-  if (options.data) {
+  if (options.config || options.data) {
     render(options.data);
   } else {
     readstdin(render);
