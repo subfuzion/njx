@@ -8,7 +8,6 @@ commander
     .version(pkg.version)
     .usage('[options] <template>')
     .option('-d, --data <source>', 'json string, or else path/url to json')
-    .option('-t, --template <template>', 'template string, or else path/url to template')
     .option('-o, --out <pathname>', 'write output to file')
     .option('-p, --paths', 'create intermediate directories when writing file')
   //.option('-n, --nocache', 'do not use template cache')
@@ -22,7 +21,8 @@ commander.on('error', function () {
 
 commander.parse(process.argv);
 
-template = commander.args && commander.args[0] || commander.template;
+template = commander.args && commander.args[0];
+
 if (!template) {
   console.log('  error: missing template');
   commander.help();
@@ -30,11 +30,13 @@ if (!template) {
 
 render(template, commander);
 
+// ==========================
+
 function render(template, options) {
   function render(data) {
     njx.render({
       data: data,
-      template: template || options.template,
+      template: template,
       outfile: options.out,
       paths: options.paths,
       cache: !options.nocache

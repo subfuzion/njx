@@ -90,18 +90,24 @@ Usage examples
 
 ## njx cli
 
-    Usage: njx render [options] template
-    
+    Usage: njx [options] template
 
-##### template
+
+#### template
 The value for template can be a nunjucks template string, a file path, or url. To specify a file path in the current directory, use the form `./template`.
 
-##### options
+#### options
 
-###### data
-
-You can pipe data to njx or specify data with the `-d` or `--data` option. The value for the data option can be a json string, file path, or url. To specify a file path in the current directory, use the form `./filename`.
+##### -d --data
 
 
+Pipe data to njx or specify data with the `-d` or `--data` option. The value for the data option can be a json string, file path, or url. To specify a file path in the current directory, use the form `./filename`.
 
+##### -o --out file
+
+Specify file to write output to.
+
+##### -p --paths
+
+Create intermediate directories if necessary when writing to a file
 
