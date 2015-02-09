@@ -12,7 +12,7 @@ function Render(context, config) {
 Render.prototype.spec = function () {
   return {
     name: 'default',
-    command: '*',
+    command: 'render <template>',
     description: 'use template to render data from stdin (or use --data option)',
     options: [
       {
