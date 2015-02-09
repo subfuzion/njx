@@ -105,9 +105,9 @@ Pipe data to njx or specify data with the `-d` or `--data` option. The value for
 
 ##### -o --out file
 
-Specify file to write output to.
+Specify file to write output to. If directories in the file path don't exist, also set the `-p --paths` option.
 
 ##### -p --paths
 
-Create intermediate directories if necessary when writing to a file
+Create intermediate directories if necessary when writing to a file.
 
