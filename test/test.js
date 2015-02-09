@@ -30,8 +30,6 @@ describe ('string source tests', function() {
 
 });
 
-
-
 describe ('file source tests', function() {
 
   it ('should render using file sources', function(done) {
@@ -48,7 +46,6 @@ describe ('file source tests', function() {
   });
 
 });
-
 
 describe ('file output tests', function() {
 
