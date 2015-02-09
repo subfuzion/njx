@@ -13,8 +13,14 @@ exports.render = function(config, callback) {
 
   async.waterfall([
       function(cb) {
-        if (config.config) {
-          getResource(config.config, function(err, doc) {
+        var conf = config.config;
+
+        if (conf) {
+          if (!/\/|\\/.test(conf)) {
+            conf = './' + conf;
+          }
+
+          getResource(conf, function(err, doc) {
             if (err) return cb(err);
             try {
               var spec = yaml.safeLoad(doc);
