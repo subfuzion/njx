@@ -47,10 +47,6 @@ function render(options) {
       }
 
       if (result) process.stdout.write(result);
-
-      // force exit due to nunjucks bug:
-      // https://github.com/mozilla/nunjucks/issues/369
-      process.exit();
     });
   }
 

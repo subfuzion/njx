@@ -9,7 +9,8 @@ var _ = require('lodash'),
     yaml = require('js-yaml');
 
 exports.render = function(config, callback) {
-  debug('render config: %j', config);
+  // ensure process exits when finished rendering
+  nunjucks.configure({ watch: false });
 
   async.waterfall([
       function(cb) {
