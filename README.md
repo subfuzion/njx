@@ -5,6 +5,8 @@ Nunjucks template helper when you just want a quick way to
 render using template and data sources that are strings,
 files, or urls.
 
+[![NPM](https://nodei.co/npm/njx.png?compact=true)](https://nodei.co/npm/njx/)
+
 You can require it as a module or use it as a command line tool.
 
     npm install --save njx
