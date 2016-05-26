@@ -23,28 +23,6 @@ or use it as a command line tool:
 
     njx [options] template
     
-Examples:
-
-    # pipe input data to the njx command, specifying the template as a string, and append the result to a file
-    $ '{ "name": "World" }' | njx "Hello {{ name }}" >> hello.txt
-    
-or
-
-    # provide template, data, and output options to the njx command
-    njx -t "Hello {{ name }}" -d '{ "name': "World" }' -o hello.txt
-
-or
-
-    # provide data and template options using URLs, and write to the specified output file
-    njx -d https://gist.githubusercontent.com/subfuzion/c77cd766397844f1fb28/raw/7f9cb47fea08e957dcb775f92bf46/data.json -t https://gist.githubusercontent.com/subfuzion/006e0d2550881956c1c9/raw/d7732488b5a9bb63830f258c9571d3f849ba494b/hello.nunjucks -o hello.txt
-
-or
-
-    # provide a "render config" option as a url to the njx command, and append the result to a file;
-    # the render config provides the data and the template (in this example, they are also URLs, which njx will follow)
-    njx -c https://gist.githubusercontent.com/subfuzion/d0fa251f8b4ab71928e2/raw/fd33beb96524c94b395c63935c701e98f2e72b52/sample-config.yaml -o hello.txt
-    
-
 ### template
 
 The value for template can be a nunjucks template string, a file path, or url. To specify a file path in the current directory, use the form `./template`.
@@ -67,6 +45,27 @@ Specify file to write output to. If directories in the file path don't exist, al
 
 Create intermediate directories if necessary when writing to a file.
 
+### Examples
+
+    # pipe input data to the njx command, specifying the template as a string, and append the result to a file
+    $ '{ "name": "World" }' | njx "Hello {{ name }}" >> hello.txt
+    
+or
+
+    # provide template, data, and output options to the njx command
+    njx -t "Hello {{ name }}" -d '{ "name': "World" }' -o hello.txt
+
+or
+
+    # provide data and template options using URLs, and write to the specified output file
+    njx -d https://gist.githubusercontent.com/subfuzion/c77cd766397844f1fb28/raw/7f9cb47fea08e957dcb775f92bf46/data.json -t https://gist.githubusercontent.com/subfuzion/006e0d2550881956c1c9/raw/d7732488b5a9bb63830f258c9571d3f849ba494b/hello.nunjucks -o hello.txt
+
+or
+
+    # provide a "render config" option as a url to the njx command, and append the result to a file;
+    # the render config provides the data and the template (in this example, they are also URLs, which njx will follow)
+    njx -c https://gist.githubusercontent.com/subfuzion/d0fa251f8b4ab71928e2/raw/fd33beb96524c94b395c63935c701e98f2e72b52/sample-config.yaml -o hello.txt
+    
 
 ## API
 
