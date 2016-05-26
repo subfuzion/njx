@@ -92,13 +92,13 @@ The `template` and `data` properties interpret strings as a nunjucks template or
 ```
   var njx = require('njx');
 
-  var spec = {
+  var config = {
     template: 'Hello {{ name }}!',
     data: { name: 'World' }
   };
 
 
-  njx.render(spec, function(err, result) {
+  njx.render(config, function(err, result) {
     console.log(result); // Hello World
   });
 ```
@@ -107,13 +107,13 @@ The `template` and `data` properties interpret strings as a nunjucks template or
 ```
   var njx = require('njx');
 
-  var spec = {
+  var config = {
     template: './template.nunjucks',
     data: { name: './data.json' }
   };
 
 
-  njx.render(spec, function(err, result) {
+  njx.render(config, function(err, result) {
     console.log(result); // Hello World
   });
 ```
@@ -127,13 +127,13 @@ The `template` and `data` properties interpret strings as a nunjucks template or
   
   var dataUrl = 'https://gist.githubusercontent.com/subfuzion/c77cd766397844f1fb28/raw/7f9c526ae145e6fb47fea08e957dcb775f92bf46/data.json'
 
-  var spec = {
+  var config = {
     template: templateUrl,
     data: { name: dataUrl }
   };
 
 
-  njx.render(spec, function(err, result) {
+  njx.render(config, function(err, result) {
     console.log(result); // Hello World
   });
 ```
