@@ -2,7 +2,7 @@
 
 [![NPM](https://nodei.co/npm/njx.png?compact=true)](https://nodei.co/npm/njx/)
 
-`njx` is a template helper for [Nunjucks], a rich and powerful templating language for JavaScript. Nunjucks is essentially a port of [Jinja2], a templating language for Python.
+`njx` is a template helper for [Nunjucks], a rich and powerful templating language for JavaScript. Nunjucks is essentially a port of [Jinja2], a templating language for Python, and in most cases the [Nunjucks docs][Nunjucks-docs] and [Jinja2 docs][Jinja2-docs] are the same (you can read about the differences [here][differences]).
 
 `njx` is ideal for when you just want a quick and easy way to render something using input sources and templates that are any combination of
 
@@ -139,5 +139,9 @@ The `template` and `data` properties interpret strings as a nunjucks template or
 ```
 
 
-[Nunjucks]: https://mozilla.github.io/nunjucks/  "Nunjucks home page"
-[Jinja2]:   http://jinja.pocoo.org/docs/dev/     "Jinja2 templating language for Python"
+[Nunjucks]:     https://mozilla.github.io/nunjucks/                "Nunjucks home page"
+[Nujucks-docs]: https://mozilla.github.io/nunjucks/templating.html "Nunjucks docs"
+[Jinja2]:       http://jinja.pocoo.org/docs/dev/                   "Jinja2 templating language for Python"
+[Jinja2-docs]:  http://jinja.pocoo.org/docs/dev/templates/         "Jinja2 docs"
+[differences]:  http://mozilla.github.io/nunjucks/faq.html#can-i-use-the-same-templates-between-nunjucks-and-jinja2-what-are-the-differences  "Nunjucks/Jinja2 differences"
+
