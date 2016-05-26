@@ -45,10 +45,11 @@ or
     njx -c https://gist.githubusercontent.com/subfuzion/d0fa251f8b4ab71928e2/raw/fd33beb96524c94b395c63935c701e98f2e72b52/sample-config.yaml -o hello.txt
     
 
-#### template
+### template
+
 The value for template can be a nunjucks template string, a file path, or url. To specify a file path in the current directory, use the form `./template`.
 
-#### options
+### options
 
 ##### -c --config
 
@@ -78,9 +79,9 @@ Create intermediate directories if necessary when writing to a file.
 
 An object with at least `template` and `data` properties.
 
- * template - [required] a template string, filepath, or url
- * data - [required] a json string, filepath, or url
- * outfile - [optional] a filename to write the rendered result to; otherwise writes to `stdout`
+ * `template` - [required] a template string, filepath, or url
+ * `data` - [required] a json string, filepath, or url
+ * `outfile` - [optional] a filename to write the rendered result to; otherwise writes to `stdout`
 
 The `template` and `data` properties interpret strings as a nunjucks template or json string, respectively, unless the string looks like a file path or url.  To specify a file in the current working directory, use the form: `./filename`.
 
