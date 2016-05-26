@@ -70,8 +70,8 @@ describe ('url source tests', function() {
 
   it ('should render using url sources', function(done) {
     var expected = 'Hello World',
-        templateUrl = 'https://gist.githubusercontent.com/tonypujals/006e0d2550881956c1c9/raw/d7732488b5a9bb63830f258c9571d3f849ba494b/hello.nunjucks',
-        dataUrl = 'https://gist.githubusercontent.com/tonypujals/c77cd766397844f1fb28/raw/7f9c526ae145e6fb47fea08e957dcb775f92bf46/data.json';
+        templateUrl = 'https://gist.githubusercontent.com/subfuzion/006e0d2550881956c1c9/raw/d7732488b5a9bb63830f258c9571d3f849ba494b/hello.nunjucks',
+        dataUrl = 'https://gist.githubusercontent.com/subfuzion/c77cd766397844f1fb28/raw/7f9c526ae145e6fb47fea08e957dcb775f92bf46/data.json';
 
     var config = {
       template: templateUrl,
